@@ -17,6 +17,7 @@
 
 import { constants } from "node:buffer";
 import { alumnos, type Alumno } from "../models/db.js";
+import { Alumno } from "../parte 2/clase-alumno.js";
 
 // -----------------------------------------------------------------------------
 // EJERCICIO 1 - Obtener nombres
@@ -160,7 +161,7 @@ export function obtenerAlumnosDeCiudad(
     alumnos: Alumno[],
     ciudad: string
 ): Alumno[] {
-    // TODO
+    return alumnos.filter((alumno) => alumno.ciudad);
     throw new Error("Implementar");
 }
 
