@@ -15,6 +15,7 @@
  * La base contiene 1000 alumnos.
  */
 
+import { constants } from "node:buffer";
 import { alumnos, type Alumno } from "../models/db.js";
 
 // -----------------------------------------------------------------------------
@@ -27,7 +28,7 @@ import { alumnos, type Alumno } from "../models/db.js";
 // obtenerNombres(alumnos)
 // -> ["Juan", "María", "Pedro", ...]
 export function obtenerNombres(alumnos: Alumno[]): string[] {
-    // TODO
+    return alumnos.map(({ nombre }) => nombre); 
     throw new Error("Implementar");
 }
 
@@ -70,7 +71,8 @@ export function obtenerAprobados(alumnos: Alumno[]): Alumno[] {
 //
 // Si el arreglo está vacío, devolver 0.
 export function calcularPromedio(alumnos: Alumno[]): number {
-    // TODO
+    const suma = alumnos.reduce ((acumulado, alumnos) => acumulado + alumnos.nota, 0);
+    return suma / alumnos.length;
     throw new Error("Implementar");
 }
 
@@ -116,7 +118,7 @@ export function buscarPorNombre(
 // Devolver true si existe al menos un alumno con nota menor a 6.
 // Resolver utilizando some.
 export function existeDesaprobado(alumnos: Alumno[]): boolean {
-    // TODO
+    return alumnos.some ((alumno) => alumno.nota < 6);
     throw new Error("Implementar");
 }
 
