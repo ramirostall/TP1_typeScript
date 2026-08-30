@@ -38,8 +38,7 @@ export function obtenerNombres(alumnos: Alumno[]): string[] {
 // Ejemplo:
 // ["Juan Pérez", "María García", ...]
 export function obtenerNombresCompletos(alumnos: Alumno[]): string[] {
-    // TODO
-    throw new Error("Implementar");
+    return alumnos.map(alumno => `${alumno.nombre} ${alumno.apellido}`);
 }
 
 // -----------------------------------------------------------------------------
@@ -78,8 +77,8 @@ export function calcularPromedio(alumnos: Alumno[]): number {
 // Devolver el alumno que tenga la nota más alta.
 // Si el arreglo está vacío, devolver undefined.
 export function obtenerMejorAlumno(alumnos: Alumno[]): Alumno | undefined {
-    // TODO
-    throw new Error("Implementar");
+    if (alumnos.length === 0) return undefined;
+    return alumnos.reduce((mejor, alumno) => (alumno.nota > mejor.nota ? alumno : mejor));
 }
 
 // -----------------------------------------------------------------------------
@@ -121,8 +120,7 @@ export function existeDesaprobado(alumnos: Alumno[]): boolean {
 // Devolver true solamente si todos los alumnos tienen nota mayor o igual a 6.
 // Resolver utilizando every.
 export function todosAprobaron(alumnos: Alumno[]): boolean {
-    // TODO
-    throw new Error("Implementar");
+    return alumnos.every(alumno => alumno.nota >= 6);
 }
 
 // -----------------------------------------------------------------------------
@@ -165,8 +163,9 @@ export function calcularPromedioPorCiudad(
     alumnos: Alumno[],
     ciudad: string
 ): number {
-    // TODO
-    throw new Error("Implementar");
+    const alumnosDeCiudad = alumnos.filter(alumno => alumno.ciudad === ciudad);
+    if (alumnosDeCiudad.length === 0) return 0;
+    return alumnosDeCiudad.reduce((acumulador, alumno) => acumulador + alumno.nota, 0) / alumnosDeCiudad.length;
 }
 
 // -----------------------------------------------------------------------------
@@ -229,8 +228,7 @@ export function calcularTotal(
     alumnos: Alumno[],
     callback: (alumno: Alumno) => number
 ): number {
-    // TODO
-    throw new Error("Implementar");
+    return alumnos.reduce((acumulador, alumno) => acumulador + callback(alumno), 0);
 }
 
 // -----------------------------------------------------------------------------
