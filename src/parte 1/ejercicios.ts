@@ -46,9 +46,9 @@ export function obtenerNombresCompletos(alumnos: Alumno[]): string[] {
 // EJERCICIO 3 - Alumnos mayores de edad
 // -----------------------------------------------------------------------------
 // Devolver solamente los alumnos que tengan 18 años o más.
+// filter devuelve un arreglo con todos los alumnos mayores de edad
 export function obtenerMayoresDeEdad(alumnos: Alumno[]): Alumno[] {
-    // TODO
-    throw new Error("Implementar");
+    return alumnos.filter(alumno => alumno.edad >= 18);
 }
 
 // -----------------------------------------------------------------------------
@@ -91,8 +91,7 @@ export function buscarPorLegajo(
     alumnos: Alumno[],
     legajo: number
 ): Alumno | undefined {
-    // TODO
-    throw new Error("Implementar");
+    return alumnos.find(alumno => alumno.legajo === legajo);
 }
 
 // -----------------------------------------------------------------------------
@@ -132,8 +131,7 @@ export function todosAprobaron(alumnos: Alumno[]): boolean {
 // Devolver la cantidad de alumnos aprobados.
 // Resolver utilizando filter y length.
 export function cantidadAprobados(alumnos: Alumno[]): number {
-    // TODO
-    throw new Error("Implementar");
+    return alumnos.filter(alumno => alumno.nota >= 6).length;
 }
 
 // -----------------------------------------------------------------------------
@@ -184,8 +182,7 @@ export function transformar<T, R>(
     elementos: T[],
     callback: (elemento: T) => R
 ): R[] {
-    // TODO
-    throw new Error("Implementar");
+    return elementos.map(callback);
 }
 
 // -----------------------------------------------------------------------------
@@ -254,8 +251,13 @@ export function calcularTotal(
 export function agruparPorCiudad(
     alumnos: Alumno[]
 ): Record<string, Alumno[]> {
-    // TODO
-    throw new Error("Implementar");
+    return alumnos.reduce((acumulador, alumno) => {
+        if (!acumulador[alumno.ciudad]){
+            acumulador[alumno.ciudad] = [];
+        }
+        acumulador[alumno.ciudad]!.push(alumno); // ! indica que el valor no es undefined. Porque si no existe, se crea
+        return acumulador;
+    }, {} as Record<string, Alumno[]>);
 }
 
 // -----------------------------------------------------------------------------
