@@ -5,7 +5,8 @@ import {
     NotificacionSMS,
     NotificacionPush,
     enviarNotificaciones,
-} from "./ej18-notificaciones.js";
+} from "../parte 3/ej18-notificaciones.js";
+
 
 afterEach(() => {
     vi.restoreAllMocks();
