@@ -37,7 +37,7 @@ export class Alumno {
         apellido: string,
         edad: number,
         email: string,
-        materias: Materia[]
+        materias: Materia[] = []
     ) {
         // TODO (Ejercicio 8): asignar los atributos recibidos.
         this.legajo = legajo;
