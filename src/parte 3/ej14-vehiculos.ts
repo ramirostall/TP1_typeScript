@@ -26,22 +26,22 @@ export class Vehiculo {
 }
 
 export class Auto extends Vehiculo {
-    acelerar(): void {
+    override acelerar(): void {
         // TODO: loguear (console.log) un mensaje que mencione "auto"
-        throw new Error("Implementar");
+        console.log(`El auto ${this.marca} ${this.modelo} está acelerando`);
     }
 }
 
 export class Moto extends Vehiculo {
-    acelerar(): void {
+    override acelerar(): void {
         // TODO: loguear un mensaje que mencione "moto"
-        throw new Error("Implementar");
+        console.log(`La moto ${this.marca} ${this.modelo} está acelerando`);
     }
 }
 
 export class Camion extends Vehiculo {
-    acelerar(): void {
+    override acelerar(): void {
         // TODO: loguear un mensaje que mencione "camión"
-        throw new Error("Implementar");
+        console.log(`El camion ${this.marca} ${this.modelo} está acelerando`);
     }
 }
